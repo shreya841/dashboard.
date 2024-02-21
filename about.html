@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="index.css".>
+
+</head>
+<body>
+    <aside>
+        
+        <ul>
+            <!-- <li><img src="https://lh3.googleusercontent.com/pw/ABLVV84W461-h5nsRDta6oexi_U-7ETPyTPYrhBJabWTuPTEOvwSidBZKsxHj500BjRLWcNfgICKxLIgqRvzE715ArT8qKkEIk7UG_rIpjjTxpxKXFPuKgg41qjxbqgudZsRKdkraOJGoz59XidKdV-Pf0UboaqNDJ8mOEOTLwJYQXUjgM1cG2_8pogL9aHH7mHN5xu9Faxq5NeQR79aWCM6c0NROrRsS3VzKOp6bpFc23ME8oDiDmp-hG_rO_RflVJbJXPCXJEkIEeWlYBWPB6h3KD-0CtVyQaZjKLQ6__do3CihDqDPLmHmlsM1FmoExIqUZGjpyjwWWm7bTkxBOZ4Foih_K04_DP7h_yiiy8lpXEo7HdmMS9JXMhKFRRA5ypjvpqkcWdbOMqHH4c-f8-TjsMgYvCsfoAQ92bGDcTU6OA1tpxvXa-YqtIIW-Q-b9rUrskOqvB_wubxWOoXSWFxNTspmURZFa13uACoKf4Vc6AQn01d0iHo22X0pOwVVHEIYWjQaU8ulwS5xjM8qw-MG2ifTpRI0W_5Kl-r5DRhxqKLSICcmDLKK3ZeGkbWRuyW2F04Bv65E7yVSkrQkjHuL1dg03dWdqWtNgFwW0e2it4yWriVqzsrqTAbilw8C6DN-UMVOSu8gGnmlxebH5s3f3Fs_rhpePUbOuy1y4U4cODP-QhfILyHaZJlzedswPQS1l47Jyt_b6wLqylHB47Fkwzjd4WRpNFCjO7zykIhBpMUFV-6DZKWg1Ho2FCMh4JqLChcz_3tzj1TIySIijlLN6lOCXQ2izB9oVvgvxeKS68EJarhC2ur542QEwsbN8tGBAJDZ0SpzL8liWzw2-HqRupbZtObToU_RSPpsYzu2QdpLPqlUFlJXU3hmx2mzyvXj69Sp0PYqqd_Uq84TmWwsqEl2Y72j7KuJO4RoNE_KiyIfWur5a1z9WKAxQ=w316-h633-s-no-gm?authuser=0" alt=" " ></li> -->
+            <li><img src="https://media.licdn.com/dms/image/C4E03AQFlaqUXw5t_Ig/profile-displayphoto-shrink_800_800/0/1619438945738?e=2147483647&v=beta&t=JJ5eSWkO3mq2zn-ldwbXSUTM3rHsTtG3k6AimoZBPYE" alt=""></li> 
+            <li><input type="text"n placeholder="Search"></li>
+            <li><a href="index.html"> Dashboard </a></li>
+            <li><a href="products.html"> Product </a></li>
+            <li><a href="order.html"> Orders </a></li>
+            <li><a href="charts.html"> Charts </a></li>
+            <li><a href="review.html">Reviews </a></li>
+           <li><a href="./userpage.html"> User Pages </a></li>
+            <li><a href="./about.html"> About Page</a></li>
+            <li><a href="./setting.html"> Setting </a></li>
+        </ul>
+        </aside>
+        <center ><div><div style="font-size: 40px; background-color: pink;color: white; margin-left: 50px;">Easy sale
+            
+        </div><div><i class="fa-regular fa-user"></i></div></div> </center>
+   
+        <form>
+            <input type="text" placeholder="Enter Name" id="nam"><br>
+            <input type="text" placeholder="Enter Email" id="username"><br>
+            <input type="text" placeholder="Enter mobile number" id="mob"><br>
+            <input type="text" placeholder="Enter Password" id="pass"><br>
+            <input type="text" placeholder="Enter Confirm Password" id="cpass"><br>
+          
+            <br>
+            <button onclick="return reg()">Registration</button>
+           
+        </form>
+        </center>
+
+        <script>
+
+            function reg(){
+                let nam = document.getElementById('nam').value;
+                let username = document.getElementById('username').value;
+                let mob = document.getElementById('mob').value;
+                let pass = document.getElementById('pass').value;
+                let cpass = document.getElementById('cpass').value;
+                let ch = document.getElementById('ch').value;
+
+                let insert = {
+                    name:nam,
+                    username:username,
+                    mobile:mob,
+                    password:pass,
+                    confirm_password:cpass,
+                    role:ch
+                }
+
+                console.log(nam,ch);
+                switch(ch){
+                    case "student":
+                        fetch('http://localhost:3000/student',{
+                            method:"POST",
+                            headers:{
+                                "Content-Type":"application/json"
+                            },
+                            body:JSON.stringify(insert)
+
+                        }).then(alert("registered students"))
+                        break;
+                    case "teacher":
+                        fetch('http://localhost:3000/teachers',{
+                            method:"POST",
+                            headers:{
+                                "Content-Type":"application/json"
+                            },
+                            body:JSON.stringify(insert)
+
+                        }).then(alert("registered teacher"))
+                        break;
+                    case "Choose your role":
+                        alert("please select role");
+                        break;
+                }
+
+            }
+
+        </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+  <!-- Include Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-FhVuPXGuIz/KPiIM7W21m6rHYpne9w3CGDPPCVnF/TtWyEWTv5rql2hB7lDEfOQ6" crossorigin="anonymous">
+</head>
+<body>
+  <aside>
+    <ul>
+      <li><img src="https://media.licdn.com/dms/image/C4E03AQFlaqUXw5t_Ig/profile-displayphoto-shrink_800_800/0/1619438945738?e=2147483647&v=beta&t=JJ5eSWkO3mq2zn-ldwbXSUTM3rHsTtG3k6AimoZBPYE" alt=""></li>
+      <li><input type="text" placeholder="Search"></li>
+      <li><a href="index.html"> Dashboard </a></li>
+      <li><a href="products.html"> Product </a></li> 
+      <li><a href="order.html"> Orders </a></li>
+      <li><a href="charts.html"> Charts </a></li>
+      <li><a href="review.html">Reviews </a></li>
+      <li><a href="./userpage.html"> User Pages </a></li>
+      <li><a href="./about.html"> About Page</a></li>
+      <li><a href="./setting.html"> Setting </a></li>
+    </ul>
+  </aside>
+  <center>
+    <div>
+      <div style="font-size: 40px; background-color: pink;color: white; margin-left: 50px;">Easy sale</div>
+      <!-- Corrected the class attribute for Font Awesome icon -->
+      <div><i class="far fa-user"></i></div>
+    </div>
+  </center>
+
+  <div id="analytic">
+    <center><h1>Sales Dashboard</h1></center>
+  </div>
+
+  <div id="point">
+    <img id="top" src="https://m.media-amazon.com/images/I/41Ak9CKsPaL.jpg" alt="" height="250px" width="250px">
+    <div>
+      <ul style="list-style-type: none;">
+        <li><h1>Shop point- retail </h1></li>
+        <li><h3>AverageRate-2k23</h3></li>
+        <li id="user"><h1>$<span id="counter">0</span></h1></li>
+        <li><h4>Income </h4></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="graph" style="margin-top: 30px;">
+    <img src="https://static.ecommercedb.com/media/2024/01/number-of-physical-zara-stores-worldwide-2013-2023-12143.png" alt="" height="270px">
+    <div id="side" style="margin-left: 200px; width: 500px;">
+      <h2>Revenue &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $1,789 &nbsp; &nbsp; +45% </h2><br>
+      <h2>Expence &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$4,789 &nbsp; &nbsp; &nbsp;&nbsp;+85%</h2><br>
+      <h2> Profit &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $8,789  &nbsp; &nbsp; &nbsp; +95%</h2><br>
+    </div>
+  </div>
+
+
+  <script>
+    let counter = 50;
+
+    function run() {
+      const interval = setInterval(() => {
+        counter++;
+        document.getElementById("counter").innerText = counter;
+
+        if (counter === 499) {
+          clearInterval(interval); // Stop the counter when it reaches 1789
+        }
+      }, .2); // Update the counter every 10 milliseconds
+    }
+
+   
+    document.addEventListener("DOMContentLoaded", run);
+  </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <aside>
+        <ul>
+            <li><img src="https://media.licdn.com/dms/image/C4E03AQFlaqUXw5t_Ig/profile-displayphoto-shrink_800_800/0/1619438945738?e=2147483647&v=beta&t=JJ5eSWkO3mq2zn-ldwbXSUTM3rHsTtG3k6AimoZBPYE" alt=""></li> 
+            <li><input type="text" placeholder="Search"></li>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="products.html">Product</a></li>
+            <li><a href="order.html">Orders</a></li>
+            <li><a href="charts.html">Charts</a></li>
+            <li><a href="review.html">Reviews</a></li>
+            <li><a href="userpage.html">User Pages</a></li>
+            <li><a href="./about.html">About Page</a></li>
+            <li><a href="./setting.html">Setting</a></li>
+        </ul>
+    </aside>
+    <center>
+        <div>
+            <div style="font-size: 40px; background-color: pink;color: white; margin-left: 50px;">Easy Market</div>
+            <div><i class="fa-regular fa-user"></i></div>
+        </div>
+    </center>
+   
+    <center><form>
+        <input type="text" onfocus="hidevalidation('nm')" id="name" placeholder="Enter your name"><br>
+        <div style="height: 15px;" id="error_name"></div>
+    
+        <input type="text" id="email" onfocus="hidevalidation('em')" placeholder="Enter your mail"><br>
+        <div style="height: 15px;" id="error_email"></div>
+        
+        <input type="text" onfocus="hidevalidation('pn')" id="phone" placeholder="Enter your number"><br>
+        <div style="height: 15px;" id="error_phone"></div>
+        
+        <input type="password" id="pass" placeholder="Enter password"><br>
+        <div style="height: 15px;" id="error_pass"></div>
+        
+        <input type="password" id="cpass" placeholder="Confirm password"><br>
+        <div style="height: 15px;" id="error_cpass"></div>
+        
+        <button id="reg" onclick="return show()">Registration</button>
+    </form></center>
+    
+    <script>
+        function show(){
+            let name = document.querySelector('#name').value ;
+            let email = document.querySelector('#email').value ;
+            let phone = document.querySelector('#phone').value ;
+            let pass = document.querySelector('#pass').value ;
+            let cpass = document.querySelector('#cpass').value ;
+    
+            if(name===""){
+                document.querySelector("#error_name").innerHTML = "Please enter your name";
+                document.querySelector("#error_name").style.color = "red";
+                document.querySelector("#error_name").style.fontWeight = "700";
+                document.querySelector('#name').style.border =  " 2px solid red";
+                document.querySelector('#name').style.outline =  "red";
+                return false;
+            } else if(email === ""){
+                document.querySelector('#error_email').innerHTML = "Enter your Email";
+                document.querySelector('#error_email').style.color = "red";
+                document.querySelector('#error_email').style.fontWeight ="700"
+                document.querySelector('#email').style.border="2px solid red";
+                document.querySelector('#email').style.outline ="red";
+                return false;
+            } else if(!(email.includes('@gmail.com') || email.includes('@yahoo.com') || email.includes('@outlook.com'))){
+                document.querySelector('#error_email').innerHTML  ="Please enter valid email";
+                document.querySelector('#error_email').style.color = "red";
+                document.querySelector('#email').style.border = "2px solid red";
+                document.querySelector('#email').style.fontWeight = 700;
+                return false;
+            } else if(isNaN(phone)){
+                alert("not a number");
+                return false;
+            } else if(phone.length !== 10){
+                alert("mobile number should be 10 digit");
+                return false;
+            } else if(!pass.match(/[1234567890]/)){
+                alert("password should be strong");
+                return false;
+            } else if(!pass.match(/[!@#$%^&*]/)){
+                alert("password must have special character");
+                return false;
+            } else if(!pass.match(/[QWERTYUIOPKLJHGFDSAZXCVBNM]/)){
+                alert("password must have uppercase character");
+                return false;
+            } else if(!pass.match(/[qwertyuiopasdfghjklzxcvbnm]/)){
+                alert("password must have lowercase character");
+                return false;
+            } else if(pass !== cpass) {
+                alert("both passwords are different");
+                document.querySelector('#pass').value = "";
+                document.querySelector('#cpass').value = "";
+                document.querySelector('#pass').focus();
+            } else {
+                alert("submitted");
+            }
+        }
+    
+        function hidevalidation(arg){
+            if(arg === "nm"){
+                document.querySelector("#error_name").innerHTML = "";
+                document.querySelector("#error_name").style.color = "black";
+                document.querySelector("#name").style.border =  " 2px solid black";
+                document.querySelector("#name").style.outline =  "black";
+                return false;
+            }
+            if(arg === "em"){
+                document.querySelector("#error_email").innerHTML = "";
+                document.querySelector("#error_email").style.color = "black";
+                document.querySelector("#email").style.border =  " 2px solid black";
+                document.querySelector("#email").style.outline =  "black";
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
